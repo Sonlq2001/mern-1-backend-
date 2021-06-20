@@ -35,7 +35,6 @@ class SubCategoryController {
 					.status(400)
 					.json({ error: "Không tìm thấy danh mục con !" });
 			}
-			console.log(data);
 			req.subCategory = data;
 			next();
 		});

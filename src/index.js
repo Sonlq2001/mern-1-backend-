@@ -12,6 +12,9 @@ import slideRouter from "./routes/slide.router";
 import subCategoryRouter from "./routes/subCategory.router";
 import commentRouter from "./routes/comment.router";
 import userRouter from "./routes/user.router";
+import cartRouter from "./routes/cart.router";
+import orderRouter from "./routes/order.router";
+import orderDetailRouter from "./routes/orderDetail.router";
 
 // connect db
 db.connect();
@@ -32,6 +35,9 @@ app.use("/api", slideRouter);
 app.use("/api", subCategoryRouter);
 app.use("/api", commentRouter);
 app.use("/api", userRouter);
+app.use("/api", cartRouter);
+app.use("/api", orderRouter);
+app.use("/api", orderDetailRouter);
 // app.get("/", (req, res) => {
 // 	res.send("le quang son");
 // });

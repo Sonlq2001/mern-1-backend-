@@ -7,7 +7,7 @@ import {
 	isAuth,
 } from "./../app/controllers/auth.controller";
 
-import { getId } from "./../app/controllers/user.controller";
+import { userId } from "./../app/controllers/user.controller";
 
 const router = express.Router();
 
@@ -48,6 +48,6 @@ router.put(
 );
 
 // id user
-router.param("userId", getId);
+router.param("userId", userId);
 
 export default router;

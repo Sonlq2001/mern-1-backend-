@@ -27,6 +27,32 @@ class CommentController {
 			res.json(data);
 		});
 	}
+
+	// get id
+	getId(req, res, next, id) {
+		Comment.findById(id).exec((err, data) => {
+			if (err) {
+				return res
+					.status(400)
+					.json({ error: "Không tìm thấy comment" });
+			}
+			req.comment = data;
+			next();
+		});
+	}
+
+	// [DELETE] /delete-comment/:id
+	remove(req, res) {
+		const commentRemove = req.comment;
+		commentRemove.delete((err, data) => {
+			if (err) {
+				return res
+					.status(400)
+					.json({ error: "Xóa comment không thành công !" });
+			}
+			res.json(data);
+		});
+	}
 }
 
 export default new CommentController();
