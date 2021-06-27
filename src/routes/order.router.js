@@ -7,4 +7,6 @@ router.get("/order", orderController.list);
 
 router.post("/add-order", orderController.add);
 
+router.delete("/delete-order/:id", orderController.remove);
+
 export default router;

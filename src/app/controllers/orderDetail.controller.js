@@ -58,6 +58,19 @@ class OrderDetailController {
 			}
 		);
 	}
+
+	// [DELETE] /delete-order-detail/:id
+	remove(req, res) {
+		const idOrder = req.params.id;
+		OrderDetail.deleteMany({ orderId: idOrder }, (err, data) => {
+			if (err) {
+				return res
+					.status(400)
+					.json({ error: "Xóa order detail không thành công !" });
+			}
+			res.json(data);
+		});
+	}
 }
 
 export default new OrderDetailController();

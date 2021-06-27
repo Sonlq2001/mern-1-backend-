@@ -27,6 +27,19 @@ class OrderController {
 			res.json(data);
 		});
 	}
+
+	// [DELETE] /delete-order/:id
+	remove(req, res) {
+		const idOrder = req.params.id;
+		Order.deleteOne({ _id: idOrder }, (err, data) => {
+			if (err) {
+				return res
+					.status(400)
+					.json({ error: "Xóa order không thành công !" });
+			}
+			res.json(data);
+		});
+	}
 }
 
 export default new OrderController();

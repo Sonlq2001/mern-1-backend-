@@ -74,6 +74,7 @@ export const isAuth = (req, res, next) => {
 	// req.profile => thông tin của admin
 	// req.auth => mã token
 	let user = req.profile && req.auth && req.profile._id == req.auth.id;
+
 	if (!user) {
 		return res.status(403).json({
 			error: "Access Denied",
